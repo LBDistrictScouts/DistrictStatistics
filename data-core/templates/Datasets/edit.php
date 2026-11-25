@@ -1,0 +1,33 @@
+<?php
+/**
+ * @var \App\View\AppView $this
+ * @var \App\Model\Entity\Dataset $dataset
+ */
+?>
+<div class="row">
+    <aside class="column">
+        <div class="side-nav">
+            <h4 class="heading"><?= __('Actions') ?></h4>
+            <?= $this->Form->postLink(
+                __('Delete'),
+                ['action' => 'delete', $dataset->id],
+                ['confirm' => __('Are you sure you want to delete # {0}?', $dataset->id), 'class' => 'side-nav-item']
+            ) ?>
+            <?= $this->Html->link(__('List Datasets'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
+        </div>
+    </aside>
+    <div class="column column-80">
+        <div class="datasets form content">
+            <?= $this->Form->create($dataset) ?>
+            <fieldset>
+                <legend><?= __('Edit Dataset') ?></legend>
+                <?php
+                    echo $this->Form->control('dataset_name');
+                    echo $this->Form->control('dataset_type');
+                ?>
+            </fieldset>
+            <?= $this->Form->button(__('Submit')) ?>
+            <?= $this->Form->end() ?>
+        </div>
+    </div>
+</div>
